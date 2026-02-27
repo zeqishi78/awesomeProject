@@ -6,7 +6,10 @@ import (
 
 //升级包：go get -u 升级到最新的次要版本或者修订版本
 //go get -u=patch 升级到最新的修订版本
-//go get xxx
+//go get xxx  会修改go.mod文件
+//一开始的时候，我写了一个A项目，仓库是project-A,但是我的代码仓库的go.mod中设置的是github.com/bobby/A
+//B项目，由于依赖了A项目，所以import的github.com/bobby/A，使用go get命令的时候，由于package和代码仓库的名称不一样，
+//这时候就要用到replace命令
 
 type Product struct {
 	gorm.Model
